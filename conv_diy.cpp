@@ -15,8 +15,8 @@ int your_conv( cv::Mat src,
     int kernel_height = kernel.rows;
     int kernel_width = kernel.cols;
 
-    int dst_height;
-    int dst_width;
+    int dst_height = ;
+    int dst_width = ;
 
     // src.ptr<unsigned char>(i)[ calculate INDEX ]
 
@@ -43,8 +43,10 @@ int main ( int argc, char** argv )
     src = cv::imread( argv[1] );
     if( !src.data )  { return -1; }
 
-    // Make filter
-    kernel = (cv::Mat_<float>(3, 3) << -1, -1, -1, -1, 8, -1, -1, -1, -1);
+    // Make filter (for 3 channels)
+    kernel = (cv::Mat_<float>(3, 3, 3) << -1, -1, -1, -1,  8, -1, -1, -1, -1,
+                                           0,  0,  0,  0,  0,  0,  0,  0,  0,
+                                           0,  0,  0,  0,  0,  0,  0,  0,  0);
 
 
     // Run 2D filter
