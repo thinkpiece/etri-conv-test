@@ -13,10 +13,10 @@ CFLAGS += $(OPENCV_FLAGS)
 binaries: $(PROG)
 
 $(PROG): %.bin : %.o
-	$(CC) $(CFLAGS) -o $@ $< $(LIBS)
+	@$(CC) $(CFLAGS) -o $@ $< $(LIBS)
 
 $(OBJS): %.o : %.cpp
-	$(CC) -c $(CFLAGS) $<
+	@$(CC) -c $(CFLAGS) $<
 
 clean:
 	@- rm -rf $(PROG)
